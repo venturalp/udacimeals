@@ -9,7 +9,11 @@ class App extends Component {
   }
 
   submitFood = () => {    
-     
+    this.props.addRecipe({
+      day: 'monday',
+      meal: 'lunch',
+      recipe: {label: (this.input && this.input.value) || ''},
+    })
   }
 
   componentDidMount() {
@@ -20,7 +24,8 @@ class App extends Component {
     })
   }
 
-  render() {
+  render() {    
+    console.log(this.props)
     return (      
       <div>
         <input type='text' ref={(input)=> this.input = input} placeholder='Monday breakfast'/>
